@@ -4,7 +4,9 @@
   "description": "Redux Todos example",
   "scripts": {
     "start": "babel-node devServer.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "test": "ava",
+    "test:watch": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
     "redux": "^3.5.2"
   },
   "devDependencies": {
+    "ava": "^0.14.0",
     "babel-cli": "^6.7.7",
     "babel-core": "^6.3.15",
     "babel-loader": "^6.2.0",
@@ -34,7 +37,20 @@
     "eslint-plugin-jsx-a11y": "^1.0.4",
     "eslint-plugin-react": "^5.0.1",
     "express": "^4.13.3",
+    "is-subset": "^0.1.1",
     "webpack": "^1.9.11",
     "webpack-dev-middleware": "^1.2.0"
+  },
+  "ava": {
+    "babel": "inherit",
+    "files": [
+      "**/*-test.js"
+    ],
+    "source": [
+      "**/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
   }
 }
